@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Contact - Mathis Le Thiec</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="logo">
+                <img src="img/logo.png" alt="Logo de Mathis Le Thiec" class="logo-img">
+            </div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="resume.html">CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h1 class="fade-in">Contactez-moi</h1>
+                <p class="section-intro fade-in">Vous avez un projet en tête ou souhaitez simplement échanger ? N'hésitez pas à me contacter !</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info fade-in">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Localisation</h3>
+                                <p>Paris, France</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>mathislethiec.pro@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Téléphone</h3>
+                                <p>+33768168872</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-connect">
+                            <h3>Suivez-moi</h3>
+                            <div class="social-icons">
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container fade-in">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Votre email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Votre message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <span>Envoyer</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="map-section">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <!-- Vous pourriez remplacer ceci par une iframe Google Maps -->
+                    <div class="placeholder-text">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Carte de localisation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mathis Le Thiec. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Script pour l'effet de défilement du header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animation des éléments au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+
+        // Validation et soumission du formulaire
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Ici vous pourriez ajouter du code pour envoyer le formulaire via AJAX
+            // ou rediriger vers une page de confirmation
+            
+            // Simulation d'envoi
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Votre message a été envoyé avec succès!');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
